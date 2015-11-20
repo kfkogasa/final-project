@@ -1,0 +1,66 @@
+<template name="housingForm">
+  <div class="template-housingForm">
+    <div class="page-header">
+      <h1>Electricity</h1>
+    </div>
+
+    <form class="form-horizontal" name="housing">
+      <fieldset>
+        <legend><i class="fa fa-lightbulb-o"></i> Electricity:</legend>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="electricity"></label>
+
+          <div class="col-sm-10">
+            <input type="number" name="electricity" id="electricity" placeholder="e.g. 2000">
+            kilowatts
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><i class="fa fa-motorcycle"></i> Fuel:</legend>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="Fuel"></label>
+
+          <div class="col-sm-10">
+            <input type="number" name="fuel" id="fuel" placeholder="e.g. 30">
+            gallons
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><i class="fa fa-train"></i> Gas:</legend>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="gas"></label>
+
+          <div class="col-sm-10">
+            <input type="number" name="gas" id="gas" placeholder="e.g. 2000">
+            <select name="gas-units" id="gas-units">
+              <option>Cubic feet</option>
+<!--              <option>Diesel</option>
+-->
+            </select>
+          </div>
+        </div>
+      </fieldset>
+
+
+      <fieldset>
+        <legend><i class="fa fa-bus"></i> Water:</legend>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="water"></label>
+
+          <div class="col-sm-10">
+            <input type="number" name="water" id="water" placeholder="e.g. 300">
+            gallons
+          </div>
+        </div>
+      </fieldset>
+
+      <input type="submit" value="Save and Continue Later">
+      <input type="button" value="Cancel">
+      <input type="submit" value="Next">
+    </form>
+  </div>
+</template>

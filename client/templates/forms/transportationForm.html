@@ -6,7 +6,7 @@
 
     <form class="form-horizontal" name="transportation">
       <fieldset>
-        <legend>Car:</legend>
+        <legend><i class="fa fa-car"></i> Car:</legend>
         <div class="form-group">
           <label class="control-label col-sm-2" for="car-miles"></label>
 
@@ -19,11 +19,13 @@
           <label class="control-label col-sm-2" for="car-type">Fuel Type: </label>
 
           <div class="col-sm-10">
-            <select name="car-type" id="car-miles">
+            <select name="car-type" id="car-type">
               <option>Gasoline</option>
               <option>Diesel</option>
+<!-- maybe add later
               <option>Hybrid</option>
               <option>Electric</option>
+-->
             </select>
           </div>
         </div>
@@ -38,7 +40,7 @@
       </fieldset>
 
       <fieldset>
-        <legend>Motorcycle:</legend>
+        <legend><i class="fa fa-motorcycle"></i> Motorcycle:</legend>
         <div class="form-group">
           <label class="control-label col-sm-2" for="motorcycle-miles"></label>
 
@@ -50,7 +52,7 @@
       </fieldset>
 
       <fieldset>
-        <legend>Train:</legend>
+        <legend><i class="fa fa-train"></i> Train:</legend>
         <div class="form-group">
           <label class="control-label col-sm-2" for="train-miles"></label>
 
@@ -64,7 +66,7 @@
 
 
       <fieldset>
-        <legend>Bus:</legend>
+        <legend><i class="fa fa-bus"></i> Bus:</legend>
         <div class="form-group">
           <label class="control-label col-sm-2" for="bus-miles"></label>
 
@@ -76,7 +78,7 @@
       </fieldset>
 
       <fieldset>
-        <legend>Flying:</legend>
+        <legend><i class="fa fa-plane"></i> Flying:</legend>
         <div class="form-group">
           <label class="control-label col-sm-2" for="flying-miles"></label>
 
@@ -90,29 +92,5 @@
       <input type="button" value="Cancel">
       <input type="submit" value="Next">
     </form>
-    <!--
-        <form class="transportation">
-
-          <input type="number" name="car-miles" placeholder="e.g. 2000"/>
-
-          <select name="car-type">
-            <option>Gasoline</option>
-            <option>Diesel</option>
-            <option>Hybrid</option>
-            <option>Electric</option>
-          </select>
-
-          <input type="number" name="car-efficiency" placeholder="e.g. 40"/>
-
-          <input type="number" name="train-miles" placeholder="e.g. 2000"/>
-
-          <input type="number" name="bus-miles" placeholder="e.g. 2000"/>
-
-          <input type="number" name="flying-miles" placeholder="e.g. 2000"/>
-
-          <input type="number" name="motorcycle-miles" placeholder="e.g. 2000"/>
-
-        </form>
-    -->
   </div>
 </template>
