@@ -1,0 +1,39 @@
+body {
+  font-family: "Crimson Text", Garamond, Times New Roman, serif;
+  font-size: 17px;
+  line-height: 1.42857143;
+  background-image: url(/images/NatureBG.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  /* This is what makes the background image rescale based
+     on the container's size */
+  background-size: cover;
+  background-color: gainsboro;
+}
+
+h1{
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  font-size: 36px;
+  color: white;
+}
+
+.textcontainer{
+  margin: 0px 100px;
+  padding: 10px;
+  background: rgba(204, 204, 204, 0.7);
+}
+
+.copycontainer{
+  color: white;
+}
+
+.navbar-header{
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+}
+
+#main-nav{
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
