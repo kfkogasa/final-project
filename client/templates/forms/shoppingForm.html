@@ -1,0 +1,74 @@
+<template name="shoppingForm">
+  <div class="template-shoppingForm">
+    <div class="page-header">
+      <h1>Food</h1>
+      <h3>How much do you spend per month?</h3>
+    </div>
+
+    <form class="form-horizontal" name="shopping">
+      <fieldset>
+        <legend><i class="fa fa-lightbulb-o"></i> Cloth:</legend>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="cloth"></label>
+
+          <div class="col-sm-10">
+            <input type="number" name="cloth" id="cloth" placeholder="e.g. 20">
+            dollars
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><i class="fa fa-motorcycle"></i> Furniture:</legend>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="furniture"></label>
+
+          <div class="col-sm-10">
+            <input type="number" name="furniture" id="furniture" placeholder="e.g. 20">
+            dollars
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><i class="fa fa-train"></i> Healthcare:</legend>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="healthcare"></label>
+
+          <div class="col-sm-10">
+            <input type="number" name="healthcare" id="healthcare" placeholder="e.g. 20">
+            dollars
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><i class="fa fa-bus"></i> Vehicle:</legend>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="vehicle"></label>
+
+          <div class="col-sm-10">
+            <input type="number" name="vehicle" id="vehicle" placeholder="e.g. 200">
+            dollars
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><i class="fa fa-bus"></i> House maintenance:</legend>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="maintenance"></label>
+
+          <div class="col-sm-10">
+            <input type="number" name="maintenance" id="maintenance" placeholder="e.g. 500">
+            dollars
+          </div>
+        </div>
+      </fieldset>
+
+      <input type="submit" value="Save and Continue Later">
+      <input type="button" value="Cancel">
+      <input type="submit" value="Next">
+    </form>
+  </div>
+</template>

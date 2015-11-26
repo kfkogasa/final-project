@@ -1,0 +1,86 @@
+<template name="foodForm">
+  <div class="template-foodForm">
+    <div class="page-header">
+      <h1>Food</h1>
+      <h3>How much do you eat per week?</h3>
+    </div>
+
+    <form class="form-horizontal" name="food">
+      <fieldset>
+        <legend><i class="fa fa-lightbulb-o"></i> Beef, pork, lamb:</legend>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="meat"></label>
+
+          <div class="col-sm-10">
+            <input type="number" name="meat" id="meat" placeholder="e.g. 20">
+            pounds
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><i class="fa fa-motorcycle"></i> Poultry:</legend>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="poultry"></label>
+
+          <div class="col-sm-10">
+            <input type="number" name="poultry" id="poultry" placeholder="e.g. 20">
+            pounds
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><i class="fa fa-train"></i> Seafood:</legend>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="seafood"></label>
+
+          <div class="col-sm-10">
+            <input type="number" name="seafood" id="seafood" placeholder="e.g. 20">
+            pounds
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><i class="fa fa-bus"></i> Vegetables:</legend>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="vegetables"></label>
+
+          <div class="col-sm-10">
+            <input type="number" name="vegetables" id="vegetables" placeholder="e.g. 5">
+            pounds
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><i class="fa fa-bus"></i> Milk:</legend>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="milk"></label>
+
+          <div class="col-sm-10">
+            <input type="number" name="milk" id="milk" placeholder="e.g. 5">
+            liters
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><i class="fa fa-bus"></i> Drinks:</legend>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="drinks"></label>
+
+          <div class="col-sm-10">
+            <input type="number" name="drinks" id="drinks" placeholder="e.g. 5">
+            liters
+          </div>
+        </div>
+      </fieldset>
+
+      <input type="submit" value="Save and Continue Later">
+      <input type="button" value="Cancel">
+      <input type="submit" value="Next">
+    </form>
+  </div>
+</template>
