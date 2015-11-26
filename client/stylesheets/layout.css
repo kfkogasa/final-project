@@ -6,10 +6,8 @@ body {
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  /* This is what makes the background image rescale based
-     on the container's size */
   background-size: cover;
-  background-color: gainsboro;
+  background-color: beige;
 }
 
 h1{
@@ -20,12 +18,15 @@ h1{
 
 .textcontainer{
   margin: 0px 100px;
-  padding: 10px;
+  padding: 3px 10px;
   background: rgba(204, 204, 204, 0.7);
 }
 
 .copycontainer{
   color: white;
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  margin: 5px;
 }
 
 .navbar-header{
@@ -36,4 +37,12 @@ h1{
 #main-nav{
   font-family: "Montserrat", Helvetica, Arial, sans-serif;
   font-size: 14px;
+}
+
+#login{
+  position: absolute;
+  left: 500px;
+  top: 195px;
+  z-index: 2;
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
 }

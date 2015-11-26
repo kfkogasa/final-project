@@ -6,7 +6,6 @@
 meteor-platform
 less
 accounts-password
-useraccounts:bootstrap
 alanning:roles
 zimme:iron-router-active
 cmather:handlebars-server@0.2.0
@@ -23,3 +22,7 @@ yasinuslu:blaze-meta
 aldeed:collection2
 aldeed:autoform
 useraccounts:iron-routing
+accounts-ui
+accounts-ui-unstyled
+accounts-facebook
+useraccounts:bootstrap
