@@ -102,7 +102,7 @@ function common_carbon() {
 function common_housing() {
   var totalhouse = 0;
 
-  var electricity = (document.getElementById('electricity1').value);
+  var electricity = (document.getElementById('electricity').value);
   //alert(electricity);
   var gas = (document.getElementById('gas1').value);
   //alert(bus);
