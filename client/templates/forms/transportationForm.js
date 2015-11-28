@@ -1,34 +1,32 @@
 /**
  * Created by kkoneko on 11/26/2015.
- * 
+ *
  * Uses Dr. Mora's JavaScript with small alterations
  */
 
 Template.transportationForm.events({
   //runs on change to any field to recalculate total CO2
-  "change": function (event, template) {
+  "change": function () {
     var totalTransportation = 0;
 
-    var miles_year = (document.getElementById('carMiles').value);
+    var miles_year = (document.getElementById('carDistance').value);
     var miles_gallon = (document.getElementById('carEfficiency').value);
 
     //alert(miles_gallon);
     //alert(miles_year);
-    var bus = (document.getElementById('busMiles').value);
+    var bus = (document.getElementById('busDistance').value);
     //alert(bus);
-    var transit = (document.getElementById('trainMiles').value);
-    var air_travel = (document.getElementById('flyingMiles').value);
+    var transit = (document.getElementById('trainDistance').value);
+    var air_travel = (document.getElementById('flyingDistance').value);
     var optionvalue = (document.getElementById('carType').value);
 
     var unit_value = (document.getElementById('units').value);
-    if (unit_value == 'miles')
-    {
+    if (unit_value == 'miles') {
       DistanceConversor = 1;
     }
 
     //not sure why these elseif parameters...
-    else if(bus != '' || transit != '' || air_travel != '' || miles_year != '' || miles_gallon != '')
-    {
+    else if (bus != '' || transit != '' || air_travel != '' || miles_year != '' || miles_gallon != '') {
       //converts miles to kilometers
       DistanceConversor = 1.60934;
     }
@@ -40,7 +38,7 @@ Template.transportationForm.events({
     if (optionvalue == 'diesel' && miles_gallon != '' && miles_year != '') {
       //var car_diesel = (miles_year / 20 * 2335 + 100 / 20 * 10153 + 100 * 56) * 0.000001;
 
-      var gallon=(((miles_year/miles_gallon*2307)+(miles_year/miles_gallon*10153)+(miles_year*56))*0.000001) * DistanceConversor;
+      var gallon = (((miles_year / miles_gallon * 2307) + (miles_year / miles_gallon * 10153) + (miles_year * 56)) * 0.000001) * DistanceConversor;
       //alert(gallon);
 //      $('#miles_gallon').val(gallon.toFixed(2));
       totalTransportation = totalTransportation + gallon;
@@ -48,9 +46,9 @@ Template.transportationForm.events({
 //      $('#total_carbon').val(totalTransportation.toFixed(2));
 //      document.getElementById("transportation").innerHTML = totalTransportation.toFixed(2);
 
-    } else if(optionvalue == 'gasoline' && miles_gallon != '' && miles_year != ''){
+    } else if (optionvalue == 'gasoline' && miles_gallon != '' && miles_year != '') {
       //alert(miles_year);
-      var gallon=(((miles_year/miles_gallon*2307)+(miles_year/miles_gallon*8874)+(miles_year*56))*0.000001) * DistanceConversor;
+      var gallon = (((miles_year / miles_gallon * 2307) + (miles_year / miles_gallon * 8874) + (miles_year * 56)) * 0.000001) * DistanceConversor;
 
       //alert(gallon);
       //var car_diesel = (miles_year / 20 * 2335 + 100 / 20 * 8874 + 100 * 56) * 0.000001;
@@ -93,6 +91,48 @@ Template.transportationForm.events({
 //    $('#dis').hide();
 //    $('#andi').show();
 
-  }
+  },
 
+  "click #save": function () {
+    var units = document.getElementById('units').value;
+
+    if (document.getElementById('carDistance').value !== '') {
+      var carDistance = document.getElementById('carDistance').value;
+    }
+    else {
+      var carDistance = null;
+    }
+
+    var carType = document.getElementById('carType').value;
+
+    if (document.getElementById('carEfficiency').value !== '') {
+      var carEfficiency = document.getElementById('carEfficiency').value;
+    }
+    else {
+      var carEfficiency = null;
+    }
+
+    if (document.getElementById('trainDistance').value !== '') {
+      var trainDistance = document.getElementById('trainDistance').value;
+    }
+    else {
+      var trainDistance = null;
+    }
+
+    if (document.getElementById('busDistance').value !== '') {
+      var busDistance = document.getElementById('busDistance').value;
+    }
+    else {
+      var busDistance = null;
+    }
+
+    if (document.getElementById('flyingDistance').value !== '') {
+      var flyingDistance = document.getElementById('flyingDistance').value;
+    }
+    else {
+      var flyingDistance = null;
+    }
+
+    Meteor.call("addTransportationUsageData", units, carDistance, carType, carEfficiency, trainDistance, busDistance, flyingDistance);
+  }
 });

@@ -6,8 +6,8 @@ Router.route('/about', {
   name: 'about'
 });
 
-Router.route('/shoppingForm', {
-  name: 'shoppingForm'
+Router.route('/transportationForm', {
+  name: 'transportationForm'
 });
 
 Router.route('/dashboard', {
