@@ -7,7 +7,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-color: beige;
+  background-color: black;
 }
 
 h1{
@@ -16,10 +16,29 @@ h1{
   color: white;
 }
 
+h3{
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  font-size: 25px;
+  text-align: center;
+}
+
 .textcontainer{
   margin: 0px 100px;
   padding: 3px 10px;
   background: rgba(204, 204, 204, 0.7);
+}
+.panel-body{
+  font-family: "Crimson Text", Garamond, Times New Roman, serif;
+  font-size: 17px;
+}
+
+.head{
+  padding: 5px;
+}
+
+.imag_list{
+  height: 50px;width:100%;
+  align-items: center;
 }
 
 .copycontainer{
