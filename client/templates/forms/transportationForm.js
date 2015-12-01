@@ -134,5 +134,23 @@ Template.transportationForm.events({
     }
 
     Meteor.call("addTransportationUsageData", units, carDistance, carType, carEfficiency, trainDistance, busDistance, flyingDistance);
+  },
+
+  "change": function () {
+    if (document.getElementById('units').value == 'kilometers'){
+      document.getElementById("endUnit1").innerHTML = "kilometers";
+      document.getElementById("endUnit2").innerHTML = "kilometers";
+      document.getElementById("endUnit3").innerHTML = "kilometers";
+      document.getElementById("endUnit4").innerHTML = "kilometers";
+      document.getElementById("endUnit5").innerHTML = "kilometers";
+    }
+    if (document.getElementById('units').value == 'miles'){
+      document.getElementById("endUnit1").innerHTML = "miles";
+      document.getElementById("endUnit2").innerHTML = "miles";
+      document.getElementById("endUnit3").innerHTML = "miles";
+      document.getElementById("endUnit4").innerHTML = "miles";
+      document.getElementById("endUnit5").innerHTML = "miles";
+    }
   }
+
 });

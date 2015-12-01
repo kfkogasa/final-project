@@ -7,16 +7,15 @@
 
     <form class="form-horizontal" name="transportation">
       <fieldset>
-        <legend>Units:</legend>
+        <legend>
+          Units: &nbsp;&nbsp;
+          <select name="units" id="units">
+            <option value="miles">miles</option>
+            <option value="kilometers">kilometers</option>
+          </select><br>
+        </legend>
         <div class="form-group">
           <label class="control-label col-sm-2" for="units"></label>
-
-          <div class="col-sm-10">
-            <select name="units" id="units">
-              <option value="miles">miles</option>
-              <option value="kilometers">kilometers</option>
-            </select>
-          </div>
         </div>
       </fieldset>
 
@@ -27,7 +26,7 @@
 
           <div class="col-sm-10">
             <input type="number" name="carDistance" id="carDistance" placeholder="e.g. 40">
-            miles
+            <p id = "endUnit1" style="display:inline">miles</p>
           </div>
         </div>
         <div class="form-group">
@@ -49,7 +48,7 @@
 
           <div class="col-sm-10">
             <input type="number" name="carEfficiency" id="carEfficiency" placeholder="e.g. 40">
-            miles per gallon
+            <p id = "endUnit2" style="display:inline">miles</p> per gallon
           </div>
         </div>
       </fieldset>
@@ -75,7 +74,7 @@
 
           <div class="col-sm-10">
             <input type="number" name="trainDistance" id="trainDistance" placeholder="e.g. 2000">
-            miles
+            <p id = "endUnit3" style="display:inline">miles</p>
           </div>
         </div>
       </fieldset>
@@ -87,7 +86,7 @@
 
           <div class="col-sm-10">
             <input type="number" name="busDistance" id="busDistance" placeholder="e.g. 2000">
-            miles
+            <p id = "endUnit4" style="display:inline">miles</p>
           </div>
         </div>
       </fieldset>
@@ -99,7 +98,7 @@
 
           <div class="col-sm-10">
             <input type="number" name="flyingDistance" id="flyingDistance" placeholder="e.g. 2000">
-            miles
+            <p id = "endUnit5" style="display:inline">miles</p>
           </div>
         </div>
       </fieldset>
