@@ -1,0 +1,3 @@
+Template.treetest.rendered = function() {
+
+};

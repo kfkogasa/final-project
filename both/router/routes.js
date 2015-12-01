@@ -28,6 +28,10 @@ Router.route('/foodForm', {
 });
  */
 
+Router.route('/treetest', {
+  name: 'treetest'
+});
+
 Router.route('/dashboard', {
   name: 'dashboard',
   controller: 'DashboardController'
