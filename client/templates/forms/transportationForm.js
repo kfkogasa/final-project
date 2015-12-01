@@ -93,6 +93,8 @@ Template.transportationForm.events({
 
   },
 
+  //next...similar to save but continues to next page?
+
   "click #save": function () {
     var units = document.getElementById('units').value;
 
@@ -152,5 +154,4 @@ Template.transportationForm.events({
       document.getElementById("endUnit5").innerHTML = "miles";
     }
   }
-
 });
