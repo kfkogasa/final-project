@@ -26,6 +26,7 @@ Template.foodForm.events({
 //      $('#total_food').val(totalfood.toFixed(2));
       //alert(totalcal);
 //      document.getElementById("food").innerHTML = totalfood.toFixed(2);
+      document.getElementById('meatCO2').innerHTML = beef_total.toFixed(2);
     }
 
     if (poultry !== '') {
@@ -35,6 +36,7 @@ Template.foodForm.events({
 //      $('#total_food').val(totalfood.toFixed(2));
       //alert(totalcal);
 //     document.getElementById("food").innerHTML = totalfood.toFixed(2);
+      document.getElementById('poultryCO2').innerHTML = poultry_total.toFixed(2);
     }
     if (fish !== '') {
       var fish_total = fish * 5.71 * 365 * 0.000001;
@@ -43,6 +45,7 @@ Template.foodForm.events({
 //      $('#total_food').val(totalfood.toFixed(2));
       //alert(totalcal);
 //      document.getElementById("food").innerHTML = totalfood.toFixed(2);
+      document.getElementById('seafoodCO2').innerHTML = fish_total.toFixed(2);
     }
     if (dairy !== '') {
       var dairy_total = dairy * 4 * 365 * 0.000001;
@@ -51,6 +54,7 @@ Template.foodForm.events({
 //      $('#total_food').val(totalfood.toFixed(2));
       //alert(totalcal);
 //      document.getElementById("food").innerHTML = totalfood.toFixed(2);
+      document.getElementById('milkCO2').innerHTML = dairy_total.toFixed(2);
     }
     if (vegetables !== '') {
       var vegetables_total = vegetables * 3.35 * 365 * 0.000001;
@@ -59,6 +63,7 @@ Template.foodForm.events({
 //      $('#total_food').val(totalfood.toFixed(2));
       //alert(totalcal);
 //      document.getElementById("food").innerHTML = totalfood.toFixed(2);
+      document.getElementById('vegetablesCO2').innerHTML = vegetables_total.toFixed(2);
     }
 
     /**
@@ -79,12 +84,127 @@ Template.foodForm.events({
       //alert(totalcal);
 //      document.getElementById("food").innerHTML = totalfood.toFixed(2);
 //      $('#total_food').val(totalfood.toFixed(2));
-
+      document.getElementById('drinksCO2').innerHTML = drinks_total.toFixed(2);
     }
     document.getElementById("food").innerHTML = totalfood.toFixed(2);
 //    $('#disfood').hide();
 //    $('#andifood').show();
 
-  }
+  },
 
+  "click #save": function () {
+    if (document.getElementById('meat').value !== '') {
+      var meat = document.getElementById('meat').value;
+      var meatCO2 = document.getElementById('meatCO2').textContent;
+    }
+    else {
+      var meat = null;
+      var meatCO2 = null;
+    }
+
+    if (document.getElementById('poultry').value !== '') {
+      var poultry = document.getElementById('poultry').value;
+      var poultryCO2 = document.getElementById('poultryCO2').textContent;
+    }
+    else {
+      var poultry = null;
+      var poultryCO2 = null
+    }
+
+    if (document.getElementById('seafood').value !== '') {
+      var seafood = document.getElementById('seafood').value;
+      var seafoodCO2 = document.getElementById('seafoodCO2').textContent;
+    }
+    else {
+      var seafood = null;
+      var seafoodCO2 = null;
+    }
+
+    if (document.getElementById('vegetables').value !== '') {
+      var vegetables = document.getElementById('vegetables').value;
+      var vegetablesCO2 = document.getElementById('vegetablesCO2').textContent;
+    }
+    else {
+      var vegetables = null;
+      var vegetablesCO2 = null;
+    }
+
+    if (document.getElementById('milk').value !== '') {
+      var milk = document.getElementById('water').value;
+      var milkCO2 = document.getElementById('milkCO2').textContent;
+    }
+    else {
+      var milk = null;
+      var milkCO2 = null;
+    }
+
+    if (document.getElementById('drinks').value !== '') {
+      var drinks = document.getElementById('drinks').value;
+      var drinksCO2 = document.getElementById('drinksCO2').textContent;
+    }
+    else {
+      var drinks = null;
+      var drinksCO2 = null;
+    }
+
+    Meteor.call("addFoodUsageData", meat, meatCO2, poultry, poultryCO2, seafood, seafoodCO2, vegetables, vegetablesCO2, milk, milkCO2, drinks, drinksCO2);
+  },
+
+  "click #next": function () {
+    if (document.getElementById('meat').value !== '') {
+      var meat = document.getElementById('meat').value;
+      var meatCO2 = document.getElementById('meatCO2').textContent;
+    }
+    else {
+      var meat = null;
+      var meatCO2 = null;
+    }
+
+    if (document.getElementById('poultry').value !== '') {
+      var poultry = document.getElementById('poultry').value;
+      var poultryCO2 = document.getElementById('poultryCO2').textContent;
+    }
+    else {
+      var poultry = null;
+      var poultryCO2 = null
+    }
+
+    if (document.getElementById('seafood').value !== '') {
+      var seafood = document.getElementById('seafood').value;
+      var seafoodCO2 = document.getElementById('seafoodCO2').textContent;
+    }
+    else {
+      var seafood = null;
+      var seafoodCO2 = null;
+    }
+
+    if (document.getElementById('vegetables').value !== '') {
+      var vegetables = document.getElementById('vegetables').value;
+      var vegetablesCO2 = document.getElementById('vegetablesCO2').textContent;
+    }
+    else {
+      var vegetables = null;
+      var vegetablesCO2 = null;
+    }
+
+    if (document.getElementById('milk').value !== '') {
+      var milk = document.getElementById('milk').value;
+      var milkCO2 = document.getElementById('milkCO2').textContent;
+    }
+    else {
+      var milk = null;
+      var milkCO2 = null;
+    }
+
+    if (document.getElementById('drinks').value !== '') {
+      var drinks = document.getElementById('drinks').value;
+      var drinksCO2 = document.getElementById('drinksCO2').textContent;
+    }
+    else {
+      var drinks = null;
+      var drinksCO2 = null;
+    }
+
+    Meteor.call("addFoodUsageData", meat, meatCO2, poultry, poultryCO2, seafood, seafoodCO2, vegetables, vegetablesCO2, milk, milkCO2, drinks, drinksCO2);
+  }
 });

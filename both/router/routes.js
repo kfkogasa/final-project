@@ -6,8 +6,17 @@ Router.route('/about', {
   name: 'about'
 });
 
+Router.route('/forms', {
+  name: 'forms'
+});
+
+/*
 Router.route('/transportationForm', {
   name: 'transportationForm'
+});
+
+Router.route('/housingForm', {
+  name: 'housingForm'
 });
 
 Router.route('/shoppingForm', {
@@ -17,10 +26,7 @@ Router.route('/shoppingForm', {
 Router.route('/foodForm', {
   name: 'foodForm'
 });
-
-Router.route('/housingForm', {
-  name: 'housingForm'
-});
+ */
 
 Router.route('/dashboard', {
   name: 'dashboard',
@@ -28,5 +34,5 @@ Router.route('/dashboard', {
 });
 
 Router.plugin('ensureSignedIn', {
-  only: ['dashboard']
+  only: ['dashboard', 'forms']
 });

@@ -16,6 +16,7 @@
             dollars
           </div>
         </div>
+        <input type="hidden" name="clothCO2" id="clothCO2">
       </fieldset>
 
       <fieldset>
@@ -28,6 +29,7 @@
             dollars
           </div>
         </div>
+        <input type="hidden" name="furnitureCO2" id="furnitureCO2">
       </fieldset>
 
       <fieldset>
@@ -40,6 +42,7 @@
             dollars
           </div>
         </div>
+        <input type="hidden" name="healthcareCO2" id="healthcareCO2">
       </fieldset>
 
       <fieldset>
@@ -52,6 +55,7 @@
             dollars
           </div>
         </div>
+        <input type="hidden" name="vehicleCO2" id="vehicleCO2">
       </fieldset>
 
       <fieldset>
@@ -64,16 +68,18 @@
             dollars
           </div>
         </div>
+        <input type="hidden" name="maintenanceCO2" id="maintenanceCO2">
       </fieldset>
 
       <div id="shoppingSummary">
         <h3>Tons CO2 per year</h3>
-        <h3><span style="color:red;" id="shopping">Somehow calculate & put here...just from shopping or total?</span></h3>
+        <h3><span style="color:red;" id="shopping"></span></h3>
       </div>
 
-      <input type="submit" value="Save and Continue Later">
-      <input type="button" value="Cancel">
-      <input type="submit" value="Next">
+      <a class="btn btn-default" href="{{ pathFor 'dashboard' }}" role="button" id="cancel">Cancel</a>
+
+      <a class="btn btn-default" href="{{ pathFor 'dashboard' }}" role="button" id="save">Save</a>
+
     </form>
   </div>
 </template>

@@ -1,21 +1,23 @@
-<template name="transportationForm">
+<template name="transportationForm" xmlns="http://www.w3.org/1999/html">
   <div class="template-transportationForm">
     <div class="page-header">
       <h1>Transportation</h1>
+
       <h3>How much do you travel per year?</h3>
     </div>
 
     <form class="form-horizontal" name="transportation">
       <fieldset>
-        <legend>
-          Units: &nbsp;&nbsp;
-          <select name="units" id="units">
-            <option value="miles">miles</option>
-            <option value="kilometers">kilometers</option>
-          </select><br>
-        </legend>
+        <legend>Units:</legend>
         <div class="form-group">
           <label class="control-label col-sm-2" for="units"></label>
+
+          <div class="col-sm-10">
+            <select name="units" id="units">
+              <option value="miles">miles</option>
+              <option value="kilometers">kilometers</option>
+            </select>
+          </div>
         </div>
       </fieldset>
 
@@ -26,7 +28,8 @@
 
           <div class="col-sm-10">
             <input type="number" name="carDistance" id="carDistance" placeholder="e.g. 40">
-            <p id = "endUnit1" style="display:inline">miles</p>
+
+            <div class="unitLabel" style="display: inline">miles</div>
           </div>
         </div>
         <div class="form-group">
@@ -36,10 +39,10 @@
             <select name="carType" id="carType">
               <option value="gasoline">Gasoline</option>
               <option value="diesel">Diesel</option>
-<!-- maybe add later, calculations not in JS
-              <option>Hybrid</option>
-              <option>Electric</option>
--->
+              <!-- maybe add later, calculations not in JS
+                            <option>Hybrid</option>
+                            <option>Electric</option>
+              -->
             </select>
           </div>
         </div>
@@ -48,24 +51,27 @@
 
           <div class="col-sm-10">
             <input type="number" name="carEfficiency" id="carEfficiency" placeholder="e.g. 40">
-            <p id = "endUnit2" style="display:inline">miles</p> per gallon
+
+            <div class="unitLabel" style="display: inline">miles</div>
+            per gallon
           </div>
         </div>
+        <input type="hidden" name="carCO2" id="carCO2">
       </fieldset>
 
-<!-- motorcycle calculations not in JS
-      <fieldset>
-        <legend><i class="fa fa-motorcycle"></i> Motorcycle:</legend>
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="motorcycleDistance"></label>
+      <!-- motorcycle calculations not in JS
+            <fieldset>
+              <legend><i class="fa fa-motorcycle"></i> Motorcycle:</legend>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="motorcycleDistance"></label>
 
-          <div class="col-sm-10">
-            <input type="number" name="motorcycleDistance" id="motorcycleDistance" placeholder="e.g. 2000">
-            miles
-          </div>
-        </div>
-      </fieldset>
--->
+                <div class="col-sm-10">
+                  <input type="number" name="motorcycleDistance" id="motorcycleDistance" placeholder="e.g. 2000">
+                  miles
+                </div>
+              </div>
+            </fieldset>
+      -->
 
       <fieldset>
         <legend><i class="fa fa-train"></i> Train:</legend>
@@ -74,9 +80,11 @@
 
           <div class="col-sm-10">
             <input type="number" name="trainDistance" id="trainDistance" placeholder="e.g. 2000">
-            <p id = "endUnit3" style="display:inline">miles</p>
+
+            <div class="unitLabel" style="display: inline">miles</div>
           </div>
         </div>
+        <input type="hidden" name="trainCO2" id="trainCO2">
       </fieldset>
 
       <fieldset>
@@ -86,9 +94,11 @@
 
           <div class="col-sm-10">
             <input type="number" name="busDistance" id="busDistance" placeholder="e.g. 2000">
-            <p id = "endUnit4" style="display:inline">miles</p>
+
+            <div class="unitLabel" style="display: inline">miles</div>
           </div>
         </div>
+        <input type="hidden" name="busCO2" id="busCO2">
       </fieldset>
 
       <fieldset>
@@ -98,19 +108,25 @@
 
           <div class="col-sm-10">
             <input type="number" name="flyingDistance" id="flyingDistance" placeholder="e.g. 2000">
-            <p id = "endUnit5" style="display:inline">miles</p>
+
+            <div class="unitLabel" style="display: inline">miles</div>
           </div>
         </div>
+        <input type="hidden" name="flyingCO2" id="flyingCO2">
       </fieldset>
 
       <div id="transportationSummary">
         <h3>Tons CO2 per year</h3>
-        <h3><span style="color:red;" id="transportation">Somehow calculate & put here</span></h3>
+
+        <h3><span style="color:red;" id="transportation"></span></h3>
       </div>
 
-      <input type="button" id="save" value="Save and Continue Later">
-      <input type="button" id="cancel" value="Cancel">
-      <input type="submit" id="next" value="Next">
+      <a class="btn btn-default" href="{{ pathFor 'dashboard' }}" role="button" id="save">Save and Continue Later</a>
+
+      <a class="btn btn-default" href="{{ pathFor 'dashboard' }}" role="button" id="cancel">Cancel</a>
+
+      <a class="btn btn-default" data-toggle="tab" href="#housingForm" role="button" id="next">Next</a>
+
     </form>
   </div>
 </template>

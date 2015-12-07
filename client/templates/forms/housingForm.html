@@ -16,6 +16,7 @@
             kilowatts
           </div>
         </div>
+        <input type="hidden" name="electricityCO2" id="electricityCO2">
       </fieldset>
 
       <fieldset>
@@ -28,6 +29,7 @@
             gallons
           </div>
         </div>
+        <input type="hidden" name="fuelCO2" id="fuelCO2">
       </fieldset>
 
       <fieldset>
@@ -43,6 +45,7 @@
             </select>
           </div>
         </div>
+        <input type="hidden" name="gasCO2" id="gasCO2">
       </fieldset>
 
       <fieldset>
@@ -55,16 +58,19 @@
             gallons
           </div>
         </div>
+        <input type="hidden" name="waterCO2" id="waterCO2">
       </fieldset>
 
       <div id="housingSummary">
         <h3>Tons CO2 per year</h3>
-        <h3><span style="color:red;" id="housing">Calculate here</span></h3>
+        <h3><span style="color:red;" id="housing"></span></h3>
       </div>
 
-      <input type="submit" value="Save and Continue Later">
-      <input type="button" value="Cancel">
-      <input type="submit" value="Next">
+      <a class="btn btn-default" href="{{ pathFor 'dashboard' }}" role="button" id="save">Save and Continue Later</a>
+
+      <a class="btn btn-default" href="{{ pathFor 'dashboard' }}" role="button" id="cancel">Cancel</a>
+
+      <a class="btn btn-default" data-toggle="tab" href="#foodForm" role="button" id="next">Next</a>
     </form>
   </div>
 </template>

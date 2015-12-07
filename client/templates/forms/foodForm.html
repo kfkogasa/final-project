@@ -16,6 +16,7 @@
             pounds
           </div>
         </div>
+        <input type="hidden" name="meatCO2" id="meatCO2">
       </fieldset>
 
       <fieldset>
@@ -28,6 +29,7 @@
             pounds
           </div>
         </div>
+        <input type="hidden" name="poultryCO2" id="poultryCO2">
       </fieldset>
 
       <fieldset>
@@ -40,6 +42,7 @@
             pounds
           </div>
         </div>
+        <input type="hidden" name="seafoodCO2" id="seafoodCO2">
       </fieldset>
 
       <fieldset>
@@ -52,6 +55,7 @@
             pounds
           </div>
         </div>
+        <input type="hidden" name="vegetablesCO2" id="vegetablesCO2">
       </fieldset>
 
       <fieldset>
@@ -64,6 +68,7 @@
             liters
           </div>
         </div>
+        <input type="hidden" name="milkCO2" id="milkCO2">
       </fieldset>
 
       <fieldset>
@@ -76,16 +81,19 @@
             liters
           </div>
         </div>
+        <input type="hidden" name="drinksCO2" id="drinksCO2">
       </fieldset>
 
       <div id="foodSummary">
         <h3>Tons CO2 per year</h3>
-        <h3><span style="color:red;" id="food">Calculate</span></h3>
+        <h3><span style="color:red;" id="food"></span></h3>
       </div>
 
-      <input type="submit" value="Save and Continue Later">
-      <input type="button" value="Cancel">
-      <input type="submit" value="Next">
+      <a class="btn btn-default" href="{{ pathFor 'dashboard' }}" role="button" id="save">Save and Continue Later</a>
+
+      <a class="btn btn-default" href="{{ pathFor 'dashboard' }}" role="button" id="cancel">Cancel</a>
+
+      <a class="btn btn-default" data-toggle="tab" href="#shoppingForm" role="button" id="next">Next</a>
     </form>
   </div>
 </template>

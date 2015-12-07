@@ -23,12 +23,22 @@ Template.transportationForm.events({
     var unit_value = (document.getElementById('units').value);
     if (unit_value == 'miles') {
       DistanceConversor = 1;
+      var labels = document.getElementsByClassName('unitLabel');
+      for (i = 0; i < labels.length; i++) {
+        labels[i].innerHTML = "miles";
+      }
     }
 
     //not sure why these elseif parameters...
-    else if (bus != '' || transit != '' || air_travel != '' || miles_year != '' || miles_gallon != '') {
+    //else if (bus != '' || transit != '' || air_travel != '' || miles_year != '' || miles_gallon != '') {
+
+    else if (unit_value == 'kilometers') {
       //converts miles to kilometers
       DistanceConversor = 1.60934;
+      var labels = document.getElementsByClassName('unitLabel');
+      for (i = 0; i < labels.length; i++) {
+        labels[i].innerHTML = "kilometers";
+      }
     }
 
 //alert(optionvalue);
@@ -45,7 +55,7 @@ Template.transportationForm.events({
       //alert(totalTransportation);
 //      $('#total_carbon').val(totalTransportation.toFixed(2));
 //      document.getElementById("transportation").innerHTML = totalTransportation.toFixed(2);
-
+      document.getElementById('carCO2').value = gallon.toFixed(2);
     } else if (optionvalue == 'gasoline' && miles_gallon != '' && miles_year != '') {
       //alert(miles_year);
       var gallon = (((miles_year / miles_gallon * 2307) + (miles_year / miles_gallon * 8874) + (miles_year * 56)) * 0.000001) * DistanceConversor;
@@ -57,6 +67,7 @@ Template.transportationForm.events({
       // alert(totalTransportation);
 //      $('#total_carbon').val(totalTransportation.toFixed(2));
 //      document.getElementById("transportation").innerHTML = totalTransportation.toFixed(2);
+      document.getElementById('carCO2').innerHTML = gallon.toFixed(2);
     }
 
     if (bus !== '') {
@@ -67,6 +78,7 @@ Template.transportationForm.events({
 //      $('#total_carbon').val(totalTransportation.toFixed(2));
       //alert(totalTransportation);
 //      document.getElementById("transportation").innerHTML = totalTransportation.toFixed(2);
+      document.getElementById('busCO2').innerHTML = bus_total.toFixed(2);
     }
 
     if (transit !== '') {
@@ -76,6 +88,7 @@ Template.transportationForm.events({
       //alert(totalTransportation);
 //      $('#total_carbon').val(totalTransportation.toFixed(2));
 //      document.getElementById("transportation").innerHTML = totalTransportation.toFixed(2);
+      document.getElementById('trainCO2').innerHTML = transit_total.toFixed(2);
     }
 
     if (air_travel !== '') {
@@ -85,6 +98,7 @@ Template.transportationForm.events({
       totalTransportation = totalTransportation + air_total;
 //      document.getElementById("transportation").innerHTML = totalTransportation.toFixed(2);
 //      $('#total_carbon').val(totalTransportation.toFixed(2));
+      document.getElementById('flyingCO2').innerHTML = air_total.toFixed(2);
     }
 
     document.getElementById("transportation").innerHTML = totalTransportation.toFixed(2);
@@ -114,44 +128,96 @@ Template.transportationForm.events({
       var carEfficiency = null;
     }
 
+    if (document.getElementById('carCO2').textContent !== '') {
+      var carCO2 = document.getElementById('carCO2').textContent;
+    }
+    else {
+      var carCO2 = null;
+    }
+
     if (document.getElementById('trainDistance').value !== '') {
       var trainDistance = document.getElementById('trainDistance').value;
+      var trainCO2 = document.getElementById('trainCO2').textContent;
     }
     else {
       var trainDistance = null;
+      var trainCO2 = null;
     }
 
     if (document.getElementById('busDistance').value !== '') {
       var busDistance = document.getElementById('busDistance').value;
+      var busCO2 = document.getElementById('busCO2').textContent;
     }
     else {
       var busDistance = null;
+      var busCO2 = null;
     }
 
     if (document.getElementById('flyingDistance').value !== '') {
       var flyingDistance = document.getElementById('flyingDistance').value;
+      var flyingCO2 = document.getElementById('flyingCO2').textContent;
     }
     else {
       var flyingDistance = null;
+      var flyingCO2 = null;
     }
 
-    Meteor.call("addTransportationUsageData", units, carDistance, carType, carEfficiency, trainDistance, busDistance, flyingDistance);
+    Meteor.call("addTransportationUsageData", units, carDistance, carType, carEfficiency, carCO2, trainDistance, trainCO2, busDistance, busCO2, flyingDistance, flyingCO2);
   },
 
-  "change": function () {
-    if (document.getElementById('units').value == 'kilometers'){
-      document.getElementById("endUnit1").innerHTML = "kilometers";
-      document.getElementById("endUnit2").innerHTML = "kilometers";
-      document.getElementById("endUnit3").innerHTML = "kilometers";
-      document.getElementById("endUnit4").innerHTML = "kilometers";
-      document.getElementById("endUnit5").innerHTML = "kilometers";
+  "click #next": function () {
+    var units = document.getElementById('units').value;
+
+    if (document.getElementById('carDistance').value !== '') {
+      var carDistance = document.getElementById('carDistance').value;
     }
-    if (document.getElementById('units').value == 'miles'){
-      document.getElementById("endUnit1").innerHTML = "miles";
-      document.getElementById("endUnit2").innerHTML = "miles";
-      document.getElementById("endUnit3").innerHTML = "miles";
-      document.getElementById("endUnit4").innerHTML = "miles";
-      document.getElementById("endUnit5").innerHTML = "miles";
+    else {
+      var carDistance = null;
     }
+
+    var carType = document.getElementById('carType').value;
+
+    if (document.getElementById('carEfficiency').value !== '') {
+      var carEfficiency = document.getElementById('carEfficiency').value;
+    }
+    else {
+      var carEfficiency = null;
+    }
+
+    if (document.getElementById('carCO2').textContent !== '') {
+      var carCO2 = document.getElementById('carCO2').textContent;
+    }
+    else {
+      var carCO2 = null;
+    }
+
+    if (document.getElementById('trainDistance').value !== '') {
+      var trainDistance = document.getElementById('trainDistance').value;
+      var trainCO2 = document.getElementById('trainCO2').textContent;
+    }
+    else {
+      var trainDistance = null;
+      var trainCO2 = null;
+    }
+
+    if (document.getElementById('busDistance').value !== '') {
+      var busDistance = document.getElementById('busDistance').value;
+      var busCO2 = document.getElementById('busCO2').textContent;
+    }
+    else {
+      var busDistance = null;
+      var busCO2 = null;
+    }
+
+    if (document.getElementById('flyingDistance').value !== '') {
+      var flyingDistance = document.getElementById('flyingDistance').value;
+      var flyingCO2 = document.getElementById('flyingCO2').textContent;
+    }
+    else {
+      var flyingDistance = null;
+      var flyingCO2 = null;
+    }
+
+    Meteor.call("addTransportationUsageData", units, carDistance, carType, carEfficiency, carCO2, trainDistance, trainCO2, busDistance, busCO2, flyingDistance, flyingCO2);
   }
 });

@@ -1,0 +1,25 @@
+<template name="forms">
+  <div class="template-forms">
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#transportationForm">Transportation</a></li>
+      <li><a data-toggle="tab" href="#housingForm">Housing</a></li>
+      <li><a data-toggle="tab" href="#foodForm">Food</a></li>
+      <li><a data-toggle="tab" href="#shoppingForm">Shopping</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="transportationForm" class="tab-pane fade in active">
+        {{> transportationForm}}
+      </div>
+      <div id="housingForm" class="tab-pane fade">
+        {{> housingForm}}
+      </div>
+      <div id="foodForm" class="tab-pane fade">
+        {{> foodForm}}
+      </div>
+      <div id="shoppingForm" class="tab-pane fade">
+        {{> shoppingForm}}
+      </div>
+    </div>
+  </div>
+</template>

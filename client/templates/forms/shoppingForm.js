@@ -22,6 +22,7 @@ Template.shoppingForm.events({
 //      $('#total_goods').val(totalgoods.toFixed(2));
       //alert(totalcal);
 //      document.getElementById("goods").innerHTML = totalgoods.toFixed(2);
+      document.getElementById('clothCO2').innerHTML = cloth_total.toFixed(2);
     }
 
     if (furniture !== '') {
@@ -31,6 +32,7 @@ Template.shoppingForm.events({
 //      $('#total_goods').val(totalgoods.toFixed(2));
       //alert(totalcal);
 //      document.getElementById("goods").innerHTML = totalgoods.toFixed(2);
+      document.getElementById('furnitureCO2').innerHTML = furniture_total.toFixed(2);
     }
 
     if (health_care !== '') {
@@ -40,6 +42,7 @@ Template.shoppingForm.events({
 //      $('#total_goods').val(totalgoods.toFixed(2));
       //alert(totalcal);
 //      document.getElementById("goods").innerHTML = totalgoods.toFixed(2);
+      document.getElementById('healthcareCO2').innerHTML = health_care_total.toFixed(2);
     }
 
     if (vehicle !== '') {
@@ -49,6 +52,7 @@ Template.shoppingForm.events({
 //      $('#total_goods').val(totalgoods.toFixed(2));
       //alert(totalcal);
 //      document.getElementById("goods").innerHTML = totalgoods.toFixed(2);
+      document.getElementById('vehicleCO2').innerHTML = vehicle_total.toFixed(2);
     }
 
     if (house_maintance !== '') {
@@ -58,11 +62,61 @@ Template.shoppingForm.events({
       //alert(totalcal);
 //      document.getElementById("goods").innerHTML = totalgoods.toFixed(2);
 //      $('#total_goods').val(totalgoods.toFixed(2));
+      document.getElementById('maintenanceCO2').innerHTML = house_maintance_total.toFixed(2);
     }
     document.getElementById("shopping").innerHTML = totalgoods.toFixed(2);
 //    $('#disgoods').hide();
 //    $('#andigoods').show();
 
+  },
+
+  "click #save": function () {
+    if (document.getElementById('cloth').value !== '') {
+      var cloth = document.getElementById('cloth').value;
+      var clothCO2 = document.getElementById('clothCO2').textContent;
+    }
+    else {
+      var cloth = null;
+      var clothCO2 = null;
+    }
+
+    if (document.getElementById('furniture').value !== '') {
+      var furniture = document.getElementById('furniture').value;
+      var furnitureCO2 = document.getElementById('furnitureCO2').textContent;
+    }
+    else {
+      var furniture = null;
+      var furnitureCO2 = null
+    }
+
+    if (document.getElementById('healthcare').value !== '') {
+      var healthcare = document.getElementById('healthcare').value;
+      var healthcareCO2 = document.getElementById('healthcareCO2').textContent;
+    }
+    else {
+      var healthcare = null;
+      var healthcareCO2 = null;
+    }
+
+    if (document.getElementById('vehicle').value !== '') {
+      var vehicle = document.getElementById('vehicle').value;
+      var vehicleCO2 = document.getElementById('vehicleCO2').textContent;
+    }
+    else {
+      var vehicle = null;
+      var vehicleCO2 = null;
+    }
+
+    if (document.getElementById('maintenance').value !== '') {
+      var maintenance = document.getElementById('maintenance').value;
+      var maintenanceCO2 = document.getElementById('maintenanceCO2').textContent;
+    }
+    else {
+      var maintenance = null;
+      var maintenanceCO2 = null;
+    }
+
+    Meteor.call("addShoppingUsageData", cloth, clothCO2, furniture, furnitureCO2, healthcare, healthcareCO2, vehicle, vehicleCO2, maintenance, maintenanceCO2);
   }
 
 });
