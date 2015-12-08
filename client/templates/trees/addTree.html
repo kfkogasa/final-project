@@ -7,9 +7,8 @@
     <section class="mainContent">
       <div class="row">
         <div class="col-md-12">
-          <div class="col-md-1"></div>
-          <div class="col-md-5">
-            <div class="panel panel-default" style="height:600px;">
+          <div class="col-md-4">
+            <div class="panel panel-default" style="height:550px;">
               <div class="panel-heading"><h3>Tree Data</h3></div>
               <div class="panel-body">
                 <input type="hidden" name="sequencial" id="sequencial" />
@@ -51,7 +50,7 @@
                   {{/if}}
                 </div>
                 <div class="form-group">
-                  <button type="submit" class="btn btn-primary">Add Tree</button>
+                  <button type="submit" class="btn btn-primary" id="addTree">Add Tree</button>
                   <button type="reset" class="btn btn-default">Reset Form</button>
                 </div>
                 {{/autoForm}}
@@ -60,8 +59,8 @@
               </div>
             </div>
           </div>
-          <div class="col-md-5">
-            <div class="panel panel-default"  style="height:600px;">
+          <div class="col-md-4">
+            <div class="panel panel-default"  style="height:550px;">
               <div class="panel-heading"><h3>Location</h3></div>
               <div class="panel-body">
                 <div class="panel-body">
@@ -70,8 +69,19 @@
                 </div>
               </div>
             </div>
-          </div>
+            </div>
 
+            <div class="col-md-4">
+              <div class="panel panel-default"  style="height:550px;">
+                <div class="panel-heading"><h3>Trees</h3></div>
+                <div class="panel-body">
+                  <div class="panel-body">
+                    <p id = "trees"></p>
+                  </div>
+                </div>
+              </div>
+          </div>
+</div>
           <!--         If you add this, change the above divs to col-md-4 as well
 
            <div class="col-md-4">
@@ -91,7 +101,6 @@
           <a class="btn btn-default" href="{{ pathFor 'dashboard' }}" role="button" id="cancelButton">Cancel</a>
           <!-- Save tree info, add to dashboard? -->
         </center>
-      </div>
     </section>
   </div>
 
