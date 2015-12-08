@@ -13,73 +13,50 @@
               <div class="panel-heading"><h3>Tree Data</h3></div>
               <div class="panel-body">
                 <input type="hidden" name="sequencial" id="sequencial" />
-                <form id="signupForm" class="form-horizontal" enctype="multipart/form-data" role="form" method="post" action="http://www.webzonetechno.com/moralab/tree_add">
-                  <div class="container">
-                    <div class="form-group">
-                      <div class="col-sm-4">
-                        Tree Type:
-                        <input type="text" class="form-control required" name="special" id="special" placeholder="Name" required>
-                      </div>
-                    </div>
 
-                    <div class="form-group">
-                      <div class="col-sm-4">
-                        Location:
-                        <input type="text" class="form-control required" name="location" id="location" placeholder="Location" required>
-                      </div>
-                    </div>
+                {{#autoForm id="afInsertDemo" type="insert" collection=Collections.People}}
+                <div class="form-group {{#if afFieldIsInvalid name='treeName'}}has-error{{/if}}">
+                  <label class="control-label">{{afFieldLabelText name='treeName'}}</label>
+                  {{> afFieldInput name='treeName'}}
+                  {{#if afFieldIsInvalid name='treeName'}}
+                  <span class="help-block">{{{afFieldMessage name='treeName'}}}</span>
+                  {{/if}}
+                </div>
+                <div class="form-group {{#if afFieldIsInvalid name='location'}}has-error{{/if}}">
+                  <label class="control-label">{{afFieldLabelText name='location'}}</label>
+                  {{> afFieldInput name='location'}}
+                  {{#if afFieldIsInvalid name='location'}}
+                  <span class="help-block">{{{afFieldMessage name='location'}}}</span>
+                  {{/if}}
+                </div>
+                <div class="form-group {{#if afFieldIsInvalid name='latitude'}}has-error{{/if}}">
+                  <label class="control-label">{{afFieldLabelText name='latitude'}}</label>
+                  {{> afFieldInput name='latitude'}}
+                  {{#if afFieldIsInvalid name='latitude'}}
+                  <span class="help-block">{{{afFieldMessage name='latitude'}}}</span>
+                  {{/if}}
+                </div>
+                <div class="form-group {{#if afFieldIsInvalid name='longitude'}}has-error{{/if}}">
+                  <label class="control-label">{{afFieldLabelText name='longitude'}}</label>
+                  {{> afFieldInput name='longitude'}}
+                  {{#if afFieldIsInvalid name='longitude'}}
+                  <span class="help-block">{{{afFieldMessage name='longitude'}}}</span>
+                  {{/if}}
+                </div>
+                <div class="form-group {{#if afFieldIsInvalid name='diameter'}}has-error{{/if}}">
+                  <label class="control-label">{{afFieldLabelText name='diameter'}}</label>
+                  {{> afFieldInput name='diameter'}}
+                  {{#if afFieldIsInvalid name='diameter'}}
+                  <span class="help-block">{{{afFieldMessage name='diameter'}}}</span>
+                  {{/if}}
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-primary">Add Tree</button>
+                  <button type="reset" class="btn btn-default">Reset Form</button>
+                </div>
+                {{/autoForm}}
 
-                    <div class="form-group">
-                      <div class="col-sm-2">
-                        Latitude:
-                        <input type="text" class="form-control" name="latitute" id="latitute" onblur="initialize()" placeholder="Latitude" required>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <div class="col-sm-2">
-                        Longitude:
-                        <input type="text" class="form-control " name="longitute" id="longititute" onblur="initialize()" placeholder="Longitude" required>
-                      </div>
-                    </div>
 
-                    <div class="form-group">
-                      <div class="col-sm-4">
-                        Date Planted:
-                        <input type="text" class="form-control" name="date" id="popupDatepicker" placeholder="Date">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <div class="col-sm-2">
-                        Diameter:
-                        <input type="text" class="form-control " name="diameter" onblur="myFunction()" id="TreeDiameter" placeholder="Diameter" required>
-                      </div><br>
-                      <div class="col-sm-2">
-                        <select class="form-control" name="Units" id="Units" required onchange="myFunction()">
-                          <option value="1">Inches</option>
-                          <option value="2">Centimeters</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div class="col-sm-5" style="">
-                      <script> var fileindex = 1;
-                      var inc = 0;
-                      var maxImg = 10;</script>
-                      <div class="">
-                        <div class="col-sm-12">
-                          <div class="img_uBtn" style="margin-left: 40px;">
-                            <div id="upload" class="upload2"><span>Upload Photos</span></div><span id="status" style="display:none"> <img src="http://www.webzonetechno.com/moralab/scripts/upload_js/loading.gif" /> </span>
-                          </div>
-                          <div class="" style="clear: both;"></div>
-                          <div class="image_content_area " style="display:none;">
-                          </div>
-
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </form>
               </div>
             </div>
           </div>
@@ -112,7 +89,6 @@
 
         <center>
           <a class="btn btn-default" href="{{ pathFor 'dashboard' }}" role="button" id="cancelButton">Cancel</a>
-          <a class="btn btn-default" href="{{ pathFor 'dashboard' }}" role="button" id="sbButton">Save Tree</a>
           <!-- Save tree info, add to dashboard? -->
         </center>
       </div>
@@ -120,7 +96,6 @@
   </div>
 
 
-  <script src="http://www.webzonetechno.com/moralab/assets/js/bootstrap.min.js"></script>
   <script src="http://www.webzonetechno.com/moralab/assets/js/jquery.touchSwipe.min.js"></script>
   <script src="http://www.webzonetechno.com/moralab/assets/js/jquery.js"></script>
   <script src="http://www.webzonetechno.com/moralab/assets/js/jquery.validate.js"></script>
@@ -128,9 +103,6 @@
   <script src="http://www.webzonetechno.com/moralab/assets/js/exporting.js"></script>
   <script src="http://www.webzonetechno.com/moralab/scripts/carbon.js"></script>
 
-  <link href="http://www.webzonetechno.com/moralab/assets/datepicker/jquery.datepick.css" rel="stylesheet">
-  <script src="http://www.webzonetechno.com/moralab/assets/datepicker/jquery.plugin.js"></script>
-  <script src="http://www.webzonetechno.com/moralab/assets/datepicker/jquery.datepick.js"></script>
   <script src="http://maps.googleapis.com/maps/api/js"></script>
   <script>
     $(function () {
@@ -392,5 +364,9 @@
 
     }
   </script>
+
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js'></script>
 
 </template>
