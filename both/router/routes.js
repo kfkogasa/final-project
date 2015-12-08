@@ -28,8 +28,8 @@ Router.route('/foodForm', {
 });
  */
 
-Router.route('/treetest', {
-  name: 'treetest'
+Router.route('/addTree', {
+  name: 'addTree'
 });
 
 Router.route('/dashboard', {

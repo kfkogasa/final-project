@@ -1,0 +1,3 @@
+Template.addTree.rendered = function() {
+
+};
