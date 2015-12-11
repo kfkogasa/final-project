@@ -81,7 +81,7 @@ Meteor.methods({
     }
   },
 
-  addFoodUsageData: function (meat, meatCO2, poultry, poultryCO2, seafood, seafoodCO2, vegetables, vegetablesCO2, milk, milkCO2, drinks, drinksCO2) {
+  addFoodUsageData: function (meat, meatCO2, poultry, poultryCO2, seafood, seafoodCO2, vegetables, vegetablesCO2, dairy, dairyCO2, drinks, drinksCO2) {
     var usageData = UsageData.findOne({
       owner: Meteor.userId()
     });
@@ -95,8 +95,8 @@ Meteor.methods({
         seafoodCO2: seafoodCO2,
         vegetables: vegetables,
         vegetablesCO2: vegetablesCO2,
-        milk: milk,
-        milkCO2: milkCO2,
+        dairy: dairy,
+        dairyCO2: dairyCO2,
         drinks: drinks,
         drinksCO2: drinksCO2,
         owner: Meteor.userId()
@@ -114,8 +114,8 @@ Meteor.methods({
               seafoodCO2: seafoodCO2,
               vegetables: vegetables,
               vegetablesCO2: vegetablesCO2,
-              milk: milk,
-              milkCO2: milkCO2,
+              dairy: dairy,
+              dairyCO2: dairyCO2,
               drinks: drinks,
               drinksCO2: drinksCO2
             }

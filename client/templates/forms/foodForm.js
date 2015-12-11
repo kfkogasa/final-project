@@ -187,9 +187,9 @@ Template.foodForm.events({
       var vegetablesCO2 = null;
     }
 
-    if (document.getElementById('milk').value !== '') {
-      var milk = document.getElementById('milk').value;
-      var milkCO2 = document.getElementById('milkCO2').textContent;
+    if (document.getElementById('dairy').value !== '') {
+      var dairy = document.getElementById('dairy').value;
+      var dairyCO2 = document.getElementById('dairyCO2').textContent;
     }
     else {
       var milk = null;
@@ -205,6 +205,6 @@ Template.foodForm.events({
       var drinksCO2 = null;
     }
 
-    Meteor.call("addFoodUsageData", meat, meatCO2, poultry, poultryCO2, seafood, seafoodCO2, vegetables, vegetablesCO2, milk, milkCO2, drinks, drinksCO2);
+    Meteor.call("addFoodUsageData", meat, meatCO2, poultry, poultryCO2, seafood, seafoodCO2, vegetables, vegetablesCO2, dairy, dairyCO2, drinks, drinksCO2);
   }
 });
