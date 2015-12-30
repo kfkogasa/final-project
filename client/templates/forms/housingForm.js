@@ -1,8 +1,54 @@
 /**
  * Created by kkoneko on 11/26/2015.
  *
- * Uses Dr. Mora's JavaScript with small alterations
+ * Uses Dr. Mora's JavaScript for caculating CO2 emission with small alterations
  */
+Template.housingForm.onRendered(function () {
+  /**
+   * load current user's data into form
+   *
+   */
+
+  //electricity data
+  if ((UsageData.findOne({
+        owner: Meteor.userId()
+      }).electricity) != null) {
+    document.getElementById('electricity').value = Number(UsageData.findOne({
+      owner: Meteor.userId()
+    }).electricity);
+  }
+
+//fuel data
+  if ((UsageData.findOne({
+        owner: Meteor.userId()
+      }).fuel) != null) {
+    document.getElementById('fuel').value = Number(UsageData.findOne({
+      owner: Meteor.userId()
+    }).fuel);
+  }
+
+  //gas data
+  if ((UsageData.findOne({
+        owner: Meteor.userId()
+      }).gas) != null) {
+    document.getElementById('gas').value = Number(UsageData.findOne({
+      owner: Meteor.userId()
+    }).gas);
+  }
+
+  document.getElementById('gasUnits').value = String(UsageData.findOne({
+    owner: Meteor.userId()
+  }).gasUnits);
+
+  //water data
+  if ((UsageData.findOne({
+        owner: Meteor.userId()
+      }).water) != null) {
+    document.getElementById('water').value = Number(UsageData.findOne({
+      owner: Meteor.userId()
+    }).water);
+  }
+});
 
 Template.housingForm.events({
   //runs on change to any field to recalculate total CO2

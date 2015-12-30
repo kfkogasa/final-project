@@ -1,8 +1,59 @@
 /**
  * Created by kkoneko on 11/26/2015.
  *
- * Uses Dr. Mora's JavaScript with small alterations
+ * Uses Dr. Mora's JavaScript for caculating CO2 emission with small alterations
  */
+Template.foodForm.onRendered(function () {
+  /**
+   * load current user's data into form
+   *
+   */
+
+  //cloth data
+  if ((UsageData.findOne({
+        owner: Meteor.userId()
+      }).cloth) != null) {
+    document.getElementById('cloth').value = Number(UsageData.findOne({
+      owner: Meteor.userId()
+    }).cloth);
+  }
+
+//furniture data
+  if ((UsageData.findOne({
+        owner: Meteor.userId()
+      }).furniture) != null) {
+    document.getElementById('furniture').value = Number(UsageData.findOne({
+      owner: Meteor.userId()
+    }).furniture);
+  }
+
+  //healthcare data
+  if ((UsageData.findOne({
+        owner: Meteor.userId()
+      }).healthcare) != null) {
+    document.getElementById('healthcare').value = Number(UsageData.findOne({
+      owner: Meteor.userId()
+    }).healthcare);
+  }
+
+  //vehicle data
+  if ((UsageData.findOne({
+        owner: Meteor.userId()
+      }).vehicle) != null) {
+    document.getElementById('vehicle').value = Number(UsageData.findOne({
+      owner: Meteor.userId()
+    }).vehicle);
+  }
+
+  //house maintenance data
+  if ((UsageData.findOne({
+        owner: Meteor.userId()
+      }).maintenance) != null) {
+    document.getElementById('maintenance').value = Number(UsageData.findOne({
+      owner: Meteor.userId()
+    }).maintenance);
+  }
+});
 
 Template.shoppingForm.events({
   //runs on change to any field to recalculate total CO2

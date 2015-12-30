@@ -1,8 +1,68 @@
 /**
  * Created by kkoneko on 11/26/2015.
  *
- * Uses Dr. Mora's JavaScript with small alterations
+ * Uses Dr. Mora's JavaScript for caculating CO2 emission with small alterations
  */
+Template.foodForm.onRendered(function () {
+  /**
+   * load current user's data into form
+   *
+   */
+
+  //meat data
+  if ((UsageData.findOne({
+        owner: Meteor.userId()
+      }).meat) != null) {
+    document.getElementById('meat').value = Number(UsageData.findOne({
+      owner: Meteor.userId()
+    }).meat);
+  }
+
+//poultry data
+  if ((UsageData.findOne({
+        owner: Meteor.userId()
+      }).poultry) != null) {
+    document.getElementById('poultry').value = Number(UsageData.findOne({
+      owner: Meteor.userId()
+    }).poultry);
+  }
+
+  //seafood data
+  if ((UsageData.findOne({
+        owner: Meteor.userId()
+      }).seafood) != null) {
+    document.getElementById('seafood').value = Number(UsageData.findOne({
+      owner: Meteor.userId()
+    }).seafood);
+  }
+
+  //vegetables data
+  if ((UsageData.findOne({
+        owner: Meteor.userId()
+      }).vegetables) != null) {
+    document.getElementById('vegetables').value = Number(UsageData.findOne({
+      owner: Meteor.userId()
+    }).vegetables);
+  }
+
+  //milk data
+  if ((UsageData.findOne({
+        owner: Meteor.userId()
+      }).milk) != null) {
+    document.getElementById('milk').value = Number(UsageData.findOne({
+      owner: Meteor.userId()
+    }).milk);
+  }
+
+  //drinks data
+  if ((UsageData.findOne({
+        owner: Meteor.userId()
+      }).drinks) != null) {
+    document.getElementById('drinks').value = Number(UsageData.findOne({
+      owner: Meteor.userId()
+    }).drinks);
+  }
+});
 
 Template.foodForm.events({
   //runs on change to any field to recalculate total CO2

@@ -1,8 +1,67 @@
 /**
  * Created by kkoneko on 11/26/2015.
  *
- * Uses Dr. Mora's JavaScript with small alterations
+ * Uses Dr. Mora's JavaScript for caculating CO2 emission with small alterations
  */
+
+Template.transportationForm.onRendered(function () {
+  /**
+   * load current user's data into form
+   *
+   */
+
+    //car data
+  document.getElementById('units').value = String(UsageData.findOne({
+    owner: Meteor.userId()
+  }).units);
+
+  if ((UsageData.findOne({
+        owner: Meteor.userId()
+      }).carDistance) != null) {
+    document.getElementById('carDistance').value = Number(UsageData.findOne({
+      owner: Meteor.userId()
+    }).carDistance);
+  }
+
+  document.getElementById('carType').value = String(UsageData.findOne({
+    owner: Meteor.userId()
+  }).carType);
+
+  if ((UsageData.findOne({
+        owner: Meteor.userId()
+      }).carEfficiency) != null) {
+    document.getElementById('carEfficiency').value = Number(UsageData.findOne({
+      owner: Meteor.userId()
+    }).carEfficiency);
+  }
+
+  //train data
+  if ((UsageData.findOne({
+        owner: Meteor.userId()
+      }).trainDistance) != null) {
+    document.getElementById('trainDistance').value = Number(UsageData.findOne({
+      owner: Meteor.userId()
+    }).trainDistance);
+  }
+
+  //bus data
+  if ((UsageData.findOne({
+        owner: Meteor.userId()
+      }).busDistance) != null) {
+    document.getElementById('busDistance').value = Number(UsageData.findOne({
+      owner: Meteor.userId()
+    }).busDistance);
+  }
+
+  //flying data
+  if ((UsageData.findOne({
+        owner: Meteor.userId()
+      }).flyingDistance) != null) {
+    document.getElementById('flyingDistance').value = Number(UsageData.findOne({
+      owner: Meteor.userId()
+    }).flyingDistance);
+  }
+});
 
 Template.transportationForm.events({
   //runs on change to any field to recalculate total CO2
